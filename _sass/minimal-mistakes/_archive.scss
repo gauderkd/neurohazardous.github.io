@@ -30,6 +30,24 @@
   }
 }
 
+.archive__item {
+  /* Makes articles have a pointer so that its intuitive they're clickable */
+  cursor: pointer;
+}
+
+/* These next two make a 'nostyle' class for <a> tags that will remove all formatting changes (ie blue text, underlines) */
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
 .archive__item-title {
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
@@ -63,11 +81,23 @@
   position: relative;
   border-radius: $border-radius;
   overflow: hidden;
+  /* Next three lines sets up the default box-shadow and positions (which are hidden) and the transition animation */
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.0);
+  top: 0px;
+  transition: box-shadow 0.3s ease-in-out, top 0.3s ease-in-out;
 
   img {
     width: 100%;
   }
 }
+
+.archive__item:hover .archive__item-teaser {
+  /* On hover of parent item, changes these properties */
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.25);
+  top: -3px;
+}
+
+
 
 .archive__item-caption {
   position: absolute;
